@@ -1,13 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersService } from './users/users.service';
-import { UsersController } from './users/users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
-import { CommentsController } from './comments/comments.controller';
-import { CommentsService } from './comments/comments.service';
 import { CommentsModule } from './comments/comments.module';
 
 @Module({
@@ -26,7 +22,7 @@ import { CommentsModule } from './comments/comments.module';
     PostsModule,
     CommentsModule,
   ],
-  controllers: [AppController, UsersController, CommentsController],
-  providers: [AppService, UsersService, CommentsService],
+  controllers: [AppController], // Retiré UsersController et CommentsController
+  providers: [AppService], // Retiré UsersService et CommentsService
 })
 export class AppModule {}
